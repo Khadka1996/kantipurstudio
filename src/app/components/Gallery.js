@@ -17,18 +17,18 @@ const Gallery = () => {
   ];
 
   const galleryImages = [
-    { id: 1, src: '/api/placeholder/400/300', category: 'portrait', title: 'Professional Portrait' },
-    { id: 2, src: '/api/placeholder/400/500', category: 'wedding', title: 'Traditional Wedding' },
-    { id: 3, src: '/api/placeholder/400/400', category: 'event', title: 'Corporate Event' },
-    { id: 4, src: '/api/placeholder/400/300', category: 'commercial', title: 'Product Photography' },
-    { id: 5, src: '/api/placeholder/400/500', category: 'portrait', title: 'Family Portrait' },
-    { id: 6, src: '/api/placeholder/400/400', category: 'wedding', title: 'Candid Wedding' },
-    { id: 7, src: '/api/placeholder/400/300', category: 'restoration', title: 'Photo Restoration' },
-    { id: 8, src: '/api/placeholder/400/500', category: 'event', title: 'Birthday Party' },
-    { id: 9, src: '/api/placeholder/400/400', category: 'commercial', title: 'Food Photography' },
-    { id: 10, src: '/api/placeholder/400/300', category: 'portrait', title: 'Couple Portrait' },
-    { id: 11, src: '/api/placeholder/400/500', category: 'wedding', title: 'Bridal Portrait' },
-    { id: 12, src: '/api/placeholder/400/400', category: 'restoration', title: 'Old Photo Restoration' }
+    { id: 1, src: '/image/professional.jpg', category: 'portrait', title: 'Professional Portrait' },
+    { id: 2, src: '/image/weeding.jpg', category: 'wedding', title: 'Traditional Wedding' },
+    { id: 3, src: '/image/event.jpg', category: 'weeding', title: 'Romantic Wedding Ceremony' },
+    { id: 4, src: '/image/product.jpg', category: 'commercial', title: 'Product Photography' },
+    { id: 5, src: '/image/family.jpg', category: 'portrait', title: 'Family Portrait' },
+    { id: 6, src: '/image/weeding1.jpg', category: 'wedding', title: 'Candid Wedding' },
+    { id: 7, src: '/image/restoration.jpg', category: 'restoration', title: 'Photo Restoration' },
+    { id: 8, src: '/image/Ceremony.jpg', category: 'event', title: 'Rice Feeding Ceremony' },
+    { id: 9, src: '/image/product.jpg', category: 'commercial', title: 'Food Photography' },
+    { id: 10, src: '/image/couple.jpg', category: 'portrait', title: 'Couple Portrait' },
+    { id: 11, src: '/image/bridal.jpg', category: 'wedding', title: 'Bridal Portrait' },
+    { id: 12, src: '/image/baby.jpg', category: 'baby', title: 'Baby Potrait' }
   ];
 
   const filteredImages = activeFilter === 'all' 
@@ -87,13 +87,6 @@ const Gallery = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Load More Button */}
-        <div className="text-center mt-12">
-          <button className="px-6 py-3 bg-[#0066F9] text-white font-semibold rounded-lg hover:bg-[#004FC9] transition-colors duration-300">
-            Load More Photos
-          </button>
         </div>
       </div>
 

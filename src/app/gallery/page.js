@@ -17,18 +17,18 @@ const Gallery = () => {
   ];
 
   const galleryImages = [
-    { id: 1, src: '/api/placeholder/400/300', category: 'portrait', title: 'Professional Portrait' },
-    { id: 2, src: '/api/placeholder/400/500', category: 'wedding', title: 'Traditional Wedding' },
-    { id: 3, src: '/api/placeholder/400/400', category: 'event', title: 'Corporate Event' },
-    { id: 4, src: '/api/placeholder/400/300', category: 'commercial', title: 'Product Photography' },
-    { id: 5, src: '/api/placeholder/400/500', category: 'portrait', title: 'Family Portrait' },
-    { id: 6, src: '/api/placeholder/400/400', category: 'wedding', title: 'Candid Wedding' },
-    { id: 7, src: '/api/placeholder/400/300', category: 'restoration', title: 'Photo Restoration' },
-    { id: 8, src: '/api/placeholder/400/500', category: 'event', title: 'Birthday Party' },
-    { id: 9, src: '/api/placeholder/400/400', category: 'commercial', title: 'Food Photography' },
-    { id: 10, src: '/api/placeholder/400/300', category: 'portrait', title: 'Couple Portrait' },
-    { id: 11, src: '/api/placeholder/400/500', category: 'wedding', title: 'Bridal Portrait' },
-    { id: 12, src: '/api/placeholder/400/400', category: 'restoration', title: 'Old Photo Restoration' }
+    { id: 1, src: '/image/professional.jpg', category: 'portrait', title: 'Professional Portrait' },
+    { id: 2, src: '/image/weeding.jpg', category: 'wedding', title: 'Traditional Wedding' },
+    { id: 3, src: '/image/event.jpg', category: 'weeding', title: 'Romantic Wedding Ceremony' },
+    { id: 4, src: '/image/product.jpg', category: 'commercial', title: 'Product Photography' },
+    { id: 5, src: '/image/family.jpg', category: 'portrait', title: 'Family Portrait' },
+    { id: 6, src: '/image/weeding1.jpg', category: 'wedding', title: 'Candid Wedding' },
+    { id: 7, src: '/image/restoration.jpg', category: 'restoration', title: 'Photo Restoration' },
+    { id: 8, src: '/image/Ceremony.jpg', category: 'event', title: 'Rice Feeding Ceremony' },
+    { id: 9, src: '/image/product.jpg', category: 'commercial', title: 'Food Photography' },
+    { id: 10, src: '/image/couple.jpg', category: 'portrait', title: 'Couple Portrait' },
+    { id: 11, src: '/image/bridal.jpg', category: 'wedding', title: 'Bridal Portrait' },
+    { id: 12, src: '/image/baby.jpg', category: 'baby', title: 'Baby Potrait' }
   ];
 
   const filteredImages = activeFilter === 'all' 
@@ -52,7 +52,7 @@ const Gallery = () => {
             <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium traimage/product.jpg ${
                 activeFilter === filter.id
                   ? 'bg-[#0066F9] text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-[#F9D600] hover:text-[#0066F9]'
@@ -68,33 +68,28 @@ const Gallery = () => {
           {filteredImages.map(image => (
             <div
               key={image.id}
-              className="group relative overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group relative overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-xl traimage/product.jpg"
               onClick={() => setSelectedImage(image)}
             >
               <img
                 src={image.src}
                 alt={image.title}
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-64 object-cover transitionimage/product.jpg group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transitimage/product.jpg flex items-end p-4">
                 <div className="text-white">
                   <h3 className="font-semibold">{image.title}</h3>
                   <p className="text-sm opacity-90 capitalize">{image.category}</p>
                 </div>
               </div>
-              <div className="absolute top-3 right-3 bg-[#F9D600] text-[#0066F9] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-3 right-3 bg-[#F9D600] text-[#0066F9] p-2 rounded-full opacity-0 group-hover:opacity-100 transitimage/product.jpg">
                 <FaExpand className="w-4 h-4" />
               </div>
             </div>
           ))}
         </div>
 
-        {/* Load More Button */}
-        <div className="text-center mt-12">
-          <button className="px-6 py-3 bg-[#0066F9] text-white font-semibold rounded-lg hover:bg-[#004FC9] transition-colors duration-300">
-            Load More Photos
-          </button>
-        </div>
+        
       </div>
 
       {/* Lightbox Modal */}
@@ -112,7 +107,7 @@ const Gallery = () => {
             </div>
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 bg-[#F9D600] text-[#0066F9] p-3 rounded-full hover:bg-[#FFDF1A] transition-colors duration-300"
+              className="absolute top-4 right-4 bg-[#F9D600] text-[#0066F9] p-3 rounded-full hover:bg-[#FFDF1A] transiimage/product.jpg"
             >
               <FaTimes className="w-6 h-6" />
             </button>

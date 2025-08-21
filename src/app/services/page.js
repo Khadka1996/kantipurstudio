@@ -14,7 +14,7 @@ const Services = () => {
       description: "Professional portrait sessions for individuals, couples, and families. We create stunning images that capture personality and emotion in our well-equipped studio or at a location of your choice.",
       icon: <FaUsers className="text-3xl text-[#F9D600]" />,
       features: ["Studio & outdoor options", "Multiple outfit changes", "Professional lighting", "Digital & print packages"],
-      image: "/api/placeholder/500/400",
+      image: "/image/family.jpg",
     },
     {
       id: 2,
@@ -22,8 +22,7 @@ const Services = () => {
       description: "Comprehensive wedding photography coverage to document your special day from preparation to reception. We specialize in both traditional and candid photography styles.",
       icon: <FaHeart className="text-3xl text-[#F9D600]" />,
       features: ["Full day coverage", "Pre-wedding shoot", "Album design", "Online gallery"],
-      image: "/api/placeholder/500/400",
-      price: "Starting at ₹25,000"
+      image: "/image/couple.jpg",
     },
     {
       id: 3,
@@ -31,7 +30,7 @@ const Services = () => {
       description: "Professional event photography for corporate events, parties, ceremonies, and special occasions. We capture the essence and emotions of your events.",
       icon: <FaCamera className="text-3xl text-[#F9D600]" />,
       features: ["Candid coverage", "Group photos", "Quick turnaround", "Digital delivery"],
-      image: "/api/placeholder/500/400",
+      image: "/image/event.jpg",
     },
     {
       id: 4,
@@ -39,7 +38,7 @@ const Services = () => {
       description: "High-quality product and commercial photography for businesses, restaurants, and brands. We help you showcase your products in the best light.",
       icon: <FaBoxOpen className="text-3xl text-[#F9D600]" />,
       features: ["Product shots", "E-commerce ready", "Brand storytelling", "White background"],
-      image: "/api/placeholder/500/400",
+      image: "/image/Ceremony.jpg",
     },
     {
       id: 5,
@@ -47,7 +46,7 @@ const Services = () => {
       description: "Professional photo editing, retouching, and enhancement services. From basic color correction to advanced manipulation, we make your photos perfect.",
       icon: <FaMagic className="text-3xl text-[#F9D600]" />,
       features: ["Color correction", "Background removal", "Skin retouching", "Creative effects"],
-      image: "/api/placeholder/500/400",
+      image: "/image/professional.jpg",
     },
     {
       id: 6,
@@ -55,7 +54,7 @@ const Services = () => {
       description: "Expert restoration of old, damaged, or faded photographs. We bring your precious memories back to life with careful digital restoration techniques.",
       icon: <FaHistory className="text-3xl text-[#F9D600]" />,
       features: ["Damage repair", "Colorization", "Digital enhancement", "Print & digital copies"],
-      image: "/api/placeholder/500/400",
+      image: "/image/restoration.jpg",
     }
   ];
 
@@ -72,15 +71,28 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div 
               key={service.id}
               className="bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
             >
               {/* Service Image */}
-              <div className="h-48 bg-gradient-to-r from-[#0066F9] to-[#004FC9] flex items-center justify-center">
-                <div className="text-white text-5xl">
-                  {service.icon}
+              <div className="h-48 relative overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  onError={(e) => {
+                    // Fallback to gradient background if image fails to load
+                    e.target.style.display = 'none';
+                    e.target.parentElement.className = 'h-48 bg-gradient-to-r from-[#0066F9] to-[#004FC9] flex items-center justify-center';
+                  }}
+                />
+                {/* Fallback icon - will show if image fails to load */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0">
+                  <div className="text-white text-5xl">
+                    {service.icon}
+                  </div>
                 </div>
               </div>
               
@@ -99,10 +111,35 @@ const Services = () => {
                   ))}
                 </ul>
                 
-               
+                {/* Book Now Button */}
+                <Link
+                  href="/contact"
+                  className="w-full bg-[#0066F9] text-white py-2 px-4 rounded-lg font-semibold hover:bg-[#004FC9] transition-colors duration-300 text-center block"
+                >
+                  Book Now
+                </Link>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <div className="bg-gradient-to-r from-[#0066F9] to-[#004FC9] rounded-2xl p-8 md:p-12 text-white">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Custom Photography Packages</h3>
+            <p className="text-lg mb-6 max-w-2xl mx-auto">
+              Need something specific? We offer custom photography packages tailored to your unique requirements and budget.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-6 py-3 bg-[#F9D600] text-[#0066F9] font-semibold rounded-lg hover:bg-[#FFDF1A] transition-colors duration-300"
+            >
+              Get a Custom Quote
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
