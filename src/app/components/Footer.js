@@ -114,7 +114,7 @@ const Footer = () => {
                 <div className="mr-3 text-[#F9D600]">
                   <FaEnvelope className="h-5 w-5" />
                 </div>
-                <span className="text-gray-200">kantipurstudio@gmail.com</span>
+                <span className="text-gray-200">studio.kantipur@gmail.com</span>
               </li>
             </ul>
           </div>

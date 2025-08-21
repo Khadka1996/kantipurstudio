@@ -1,28 +1,26 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import './globals.css';
+import Navbar from './components/NavBar';
+import Footer from './components/Footer';
+import WhatsAppButton from './components/Connect';
+import ContactUs from './components/ContactUs';
 
 export const metadata = {
-  title: "Kantipur Studio - Professional Photography & Videography",
-  description: "30+ years of excellence in photography, videography, editing, and graphics design services in Kathmandu, Nepal.",
+  title: 'Kantipur Photo Studio',
+  description: 'Capturing moments, creating memories',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="min-h-screen flex flex-col">
+        <Navbar />
+        <WhatsAppButton />
+        <main className="flex-grow">
+          {children}
+          <ContactUs/>
+           <Footer />
+        </main>
+       
       </body>
     </html>
   );
